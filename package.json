@@ -2,6 +2,7 @@
   "name": "imre-szabo-cms",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://andrijagrozni.github.io/imre-szabo-cms/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
