@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/imre-szabo-cms' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/imre-szabo-cms/' : '',
+  basePath: '/imre-szabo-cms',
+  assetPrefix: '/imre-szabo-cms/',
 }
 
 module.exports = nextConfig 

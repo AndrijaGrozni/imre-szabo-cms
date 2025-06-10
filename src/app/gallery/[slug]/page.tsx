@@ -1,4 +1,4 @@
-import { getAlbumBySlug } from '@/lib/albums';
+import { getAlbumBySlug, getAllAlbums } from '@/lib/albums';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -7,6 +7,13 @@ interface AlbumPageProps {
   params: {
     slug: string;
   };
+}
+
+export function generateStaticParams() {
+  const albums = getAllAlbums();
+  return albums.map((album) => ({
+    slug: album.slug,
+  }));
 }
 
 export default function AlbumPage({ params }: AlbumPageProps) {
