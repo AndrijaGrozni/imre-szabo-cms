@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: admin/imre-szabo-cms
   branch: main
 
 media_folder: "public/images/uploads"
@@ -7,20 +8,20 @@ public_folder: "/images/uploads"
 
 collections:
   - name: "albums"
-    label: "Photo Albums"
+    label: "Albums"
     folder: "content/albums"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - {label: "Photos", name: "photos", widget: "list", fields:
-          - {label: "Image", name: "image", widget: "image"}
-          - {label: "Caption", name: "caption", widget: "string"}
-          - {label: "Alt Text", name: "alt", widget: "string"}}
+      - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Images", name: "images", widget: "list", fields: [
+          {label: "Image", name: "image", widget: "image"},
+          {label: "Caption", name: "caption", widget: "string", required: false}
+        ]}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
 
   - name: "news"
     label: "News"
@@ -30,9 +31,9 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
       - {label: "Content", name: "body", widget: "markdown"}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
 
   - name: "biography"
     label: "Biography"
